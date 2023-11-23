@@ -35,6 +35,7 @@ public class ProductService {
 		return result.map(x -> new ProductDTO(x));
 	}
 
+	@Transactional
 	public ProductDTO insert(ProductDTO dto) {
 		Product entity = new Product();
 		copyDtoToEntity(dto, entity);
@@ -43,6 +44,7 @@ public class ProductService {
 		return new ProductDTO(entity);
 	}
 
+	@Transactional
 	public ProductDTO update(Long id, ProductDTO dto) {
 		try {
 			Product entity = repository.getReferenceById(id);
